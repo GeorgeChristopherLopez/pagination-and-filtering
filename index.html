@@ -1,0 +1,63 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="styles.css" rel="stylesheet"/>
+    <title>employee api directory</title>
+</head>
+<body>
+    <header class="header">
+        <h3 class="logo">employee api directory</h3>
+        <nav class="search-icon">
+
+            <svg fill="currentColor" height="24" version="1.1" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title>Search Icon</title><path d="M9.583 2a7.583 7.583 0 0 1 7.584 7.583 7.601 7.601 0 0 1-1.82 4.935l.315.315h.921l5.834 5.834-1.75 1.75-5.834-5.834v-.921l-.315-.315a7.601 7.601 0 0 1-4.935 1.82A7.583 7.583 0 0 1 9.583 2zm0 2.333a5.228 5.228 0 0 0-5.25 5.25 5.228 5.228 0 0 0 5.25 5.25 5.228 5.228 0 0 0 5.25-5.25 5.228 5.228 0 0 0-5.25-5.25z" fill-rule="nonzero"></path></svg>
+        </nav>
+    </header>
+    <!--dropdown search bar-->
+    <div class="search-bar hide">
+        <svg fill="currentColor" height="32" version="1.1" viewBox="0 0 32 32" width="52" xmlns="http://www.w3.org/2000/svg"><title>Search Icon</title><path d="M9.583 2a7.583 7.583 0 0 1 7.584 7.583 7.601 7.601 0 0 1-1.82 4.935l.315.315h.921l5.834 5.834-1.75 1.75-5.834-5.834v-.921l-.315-.315a7.601 7.601 0 0 1-4.935 1.82A7.583 7.583 0 0 1 9.583 2zm0 2.333a5.228 5.228 0 0 0-5.25 5.25 5.228 5.228 0 0 0 5.25 5.25 5.228 5.228 0 0 0 5.25-5.25 5.228 5.228 0 0 0-5.25-5.25z" fill-rule="nonzero"></path></svg>
+        <input class="search" type="search" placeholder="Search" />
+    </div>
+
+    <div class="main">
+
+        <h1>Staff</h1>
+        <div class="container">
+            <!---sample card-->
+            <!---
+            <div class="card">
+            <img src="images/member-1.jpg" />
+            <div class="card-body">
+                <h3>Alex Goldwoman</h3>
+                <p>alexgoldwoman@gmail.com</p>
+            </div>
+            </div>
+            -->
+        </div>
+    </div>
+    <!---Modal Background-->
+    <div id="modal-bg" class="modal hide">
+
+        <!-- Modal Container -->
+        <div class="modal-container">
+           
+        </div>
+
+    </div>
+    <!---End of Modal-->
+
+    <footer style="text-align:center; display: grid; grid-template-columns: 1fr 1fr;"><p>made by george</p><p>Powered by randomuser.me</p></footer>
+
+    <!---Scripts-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+
+    <script src="app.js"></script>
+    <script src="search.js"></script>
+    <script src="modal.js"></script>
+
+</body>
+</html>
