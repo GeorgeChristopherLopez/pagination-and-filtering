@@ -1,11 +1,20 @@
 let main = document.querySelector('.container');
+let pagination = document.getElementById('pagination');
+let currentPage = 2;
+let rows = 10;
+
+
+
+
+
 
 let searchIcon = document.querySelector('.search-icon');
 let searchBox = document.querySelector('.search-bar');
-
 searchIcon.addEventListener('click', function () {
     searchBox.classList.toggle('hide');
 });
+
+
 // rendering employees
 let employees = [];
 let counter = 0;
@@ -22,21 +31,30 @@ async function getData () {
                 if (counter < 50) {
                     getData();
                 } else {
-                    displayData();
+                    displayData(employees, main, rows, currentPage);
+                    setupPagination(employees, pagination, rows);
+                    
                 }               
             }
         });
+
 }
 
- function displayData() {
-     for (let x = 0; x < employees.length; x++) {
+function displayData(employees, main, rows, page) {
+    main.innerHTML = "";
+     page--;
+     let start = rows * page;
+     let end = start + rows;
+     let paginatedList = employees.slice(start, end);
+     console.log(paginatedList);
+     for (let x = 0; x < paginatedList.length; x++) {
          // add array data parsed into html
-         console.log(employees[x]);
+         console.log(paginatedList[x]);
          main.innerHTML += ` <span class="close hide">X</span> <div class="card">
-                    <img src="${employees[x].picture.large}" />
+                    <img src="${paginatedList[x].picture.large}" />
                     <div class="card-body">
-                        <h3>${employees[x].name.first} ${employees[x].name.last}</h3>
-                        <p>${employees[x].login.username}</p>
+                        <h3>${paginatedList[x].name.first} ${paginatedList[x].name.last}</h3>
+                        <p>${paginatedList[x].login.username}</p>
                         
                     </div>
                    <p style="padding: 1rem;">Last Joined 1/3/2020</p>
@@ -45,5 +63,38 @@ async function getData () {
 }
 
 
+    function paginationButton(page, employees) {
+        let button = document.createElement('button');
+        button.innerText = page;
 
- getData();
+        if (currentPage == page) button.classList.add('active');
+
+        button.addEventListener('click', e => {
+            currentPage = page;
+            displayData(employees, main, rows, currentPage);
+
+            let current_btn = document.querySelector('.pagination button.active');
+            current_btn.classList.remove('active');
+            button.classList.add('active');
+        })
+
+        return button;
+    }
+function setupPagination(employees, wrapper, rows) {
+    console.log('paginating');
+    wrapper.innerHTML = "";
+    let pageCount = Math.ceil(employees.length / rows);
+    for (let i = 1; i < pageCount + 1; i++) {
+        let pBtn = paginationButton(i, employees);
+        wrapper.appendChild(pBtn);
+        console.log(wrapper, pBtn);
+    }
+
+
+
+}
+
+
+getData();
+
+
